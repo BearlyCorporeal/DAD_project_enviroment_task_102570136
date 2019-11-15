@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="03984fd7b9344cbea47227f1a3b727f7" Name="Diagram1">
+        <EntityTypeShape EntityType="DADModel.C102107602Author" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.C102107602Book" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.C102107602Student" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.ASSIGNMENT" Width="1.5" PointX="5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.Author" Width="1.5" PointX="7.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.Author0136" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.Book" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.Book0136" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.EMPLOYEE" Width="1.5" PointX="2.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.Office" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.Student" Width="1.5" PointX="10" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DADModel.student0136" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DADModel.FK__102107602__Autho__37729E57" ManuallyRouted="false" />
+        <AssociationConnector Association="DADModel.FK__102107602__StudI__3866C290" ManuallyRouted="false" />
+        <AssociationConnector Association="DADModel.FK__ASSIGNMEN__LOCCO__245FC9E3" ManuallyRouted="false" />
+        <AssociationConnector Association="DADModel.FK__ASSIGNMEN__STAFF__2553EE1C" ManuallyRouted="false" />
+        <AssociationConnector Association="DADModel.FK__Student__AUTHORI__30C5A0C8" ManuallyRouted="false" />
+        <AssociationConnector Association="DADModel.FK__Book0136__Author__40FC0891" ManuallyRouted="false" />
+        <AssociationConnector Association="DADModel.FK__Book0136__Studen__41F02CCA" ManuallyRouted="false" />
+        <AssociationConnector Association="DADModel.Borrow0136" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

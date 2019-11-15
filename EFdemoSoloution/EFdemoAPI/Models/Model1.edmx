@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DADModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="102107602Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TFN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="102107602Book">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Published" Type="int" Nullable="false" />
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+          <Property Name="StudID" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="102107602Student">
+          <Key>
+            <PropertyRef Name="StudID" />
+          </Key>
+          <Property Name="StudID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASSIGNMENT">
+          <Key>
+            <PropertyRef Name="DATEASSIGNED" />
+          </Key>
+          <Property Name="LOCCODE" Type="nvarchar" MaxLength="10" />
+          <Property Name="STAFFID" Type="nvarchar" MaxLength="10" />
+          <Property Name="DATEASSIGNED" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AUTHORID" />
+          </Key>
+          <Property Name="AUTHORID" Type="int" Nullable="false" />
+          <Property Name="AUTHORFIRSTNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="AUTHORLASTNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="AUTHORTAXFILENUMBER" Type="int" />
+        </EntityType>
+        <EntityType Name="Author0136">
+          <Key>
+            <PropertyRef Name="AuthorsID" />
+          </Key>
+          <Property Name="AuthorsID" Type="int" Nullable="false" />
+          <Property Name="AuthorsFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorsSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuthorsTaxFileNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="YEARPUBLISHED" Type="int" Nullable="false" />
+          <Property Name="AUTHORID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Book0136">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="YearPublished" Type="int" Nullable="false" />
+          <Property Name="AuthorsID" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Borrow0136">
+          <Key>
+            <PropertyRef Name="StudentId" />
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="ISBN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="STAFFID" />
+          </Key>
+          <Property Name="STAFFID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="GIVENNAME" Type="nvarchar" MaxLength="15" />
+          <Property Name="SURNAME" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="LOCCODE" />
+          </Key>
+          <Property Name="LOCCODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="30" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="FIRSTNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LASTNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="320" Nullable="false" />
+          <Property Name="PHONENUMBER" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="AUTHORID" Type="int" />
+        </EntityType>
+        <EntityType Name="student0136">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MobilePhoneNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__102107602__Autho__37729E57">
+          <End Role="102107602Author" Type="Self.102107602Author" Multiplicity="1" />
+          <End Role="102107602Book" Type="Self.102107602Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="102107602Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="102107602Book">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__102107602__StudI__3866C290">
+          <End Role="102107602Student" Type="Self.102107602Student" Multiplicity="0..1" />
+          <End Role="102107602Book" Type="Self.102107602Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="102107602Student">
+              <PropertyRef Name="StudID" />
+            </Principal>
+            <Dependent Role="102107602Book">
+              <PropertyRef Name="StudID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASSIGNMEN__LOCCO__245FC9E3">
+          <End Role="Office" Type="Self.Office" Multiplicity="0..1" />
+          <End Role="ASSIGNMENT" Type="Self.ASSIGNMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="LOCCODE" />
+            </Principal>
+            <Dependent Role="ASSIGNMENT">
+              <PropertyRef Name="LOCCODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASSIGNMEN__STAFF__2553EE1C">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="ASSIGNMENT" Type="Self.ASSIGNMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="STAFFID" />
+            </Principal>
+            <Dependent Role="ASSIGNMENT">
+              <PropertyRef Name="STAFFID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Book0136__Author__40FC0891">
+          <End Role="Author0136" Type="Self.Author0136" Multiplicity="1" />
+          <End Role="Book0136" Type="Self.Book0136" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author0136">
+              <PropertyRef Name="AuthorsID" />
+            </Principal>
+            <Dependent Role="Book0136">
+              <PropertyRef Name="AuthorsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Book0136__Studen__41F02CCA">
+          <End Role="student0136" Type="Self.student0136" Multiplicity="1" />
+          <End Role="Book0136" Type="Self.Book0136" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student0136">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Book0136">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Borrow013__Stude__43D8753C">
+          <End Role="student0136" Type="Self.student0136" Multiplicity="1" />
+          <End Role="Borrow0136" Type="Self.Borrow0136" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student0136">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Borrow0136">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Borrow0136__ISBN__42E45103">
+          <End Role="Book0136" Type="Self.Book0136" Multiplicity="1" />
+          <End Role="Borrow0136" Type="Self.Borrow0136" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book0136">
+              <PropertyRef Name="ISBN" />
+            </Principal>
+            <Dependent Role="Borrow0136">
+              <PropertyRef Name="ISBN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__AUTHORI__30C5A0C8">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AUTHORID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="AUTHORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DADModelStoreContainer">
+          <EntitySet Name="102107602Author" EntityType="Self.102107602Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="102107602Book" EntityType="Self.102107602Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="102107602Student" EntityType="Self.102107602Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ASSIGNMENT" EntityType="Self.ASSIGNMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Author0136" EntityType="Self.Author0136" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Book0136" EntityType="Self.Book0136" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Borrow0136" EntityType="Self.Borrow0136" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Office" EntityType="Self.Office" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student0136" EntityType="Self.student0136" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__102107602__Autho__37729E57" Association="Self.FK__102107602__Autho__37729E57">
+            <End Role="102107602Author" EntitySet="102107602Author" />
+            <End Role="102107602Book" EntitySet="102107602Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK__102107602__StudI__3866C290" Association="Self.FK__102107602__StudI__3866C290">
+            <End Role="102107602Student" EntitySet="102107602Student" />
+            <End Role="102107602Book" EntitySet="102107602Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASSIGNMEN__LOCCO__245FC9E3" Association="Self.FK__ASSIGNMEN__LOCCO__245FC9E3">
+            <End Role="Office" EntitySet="Office" />
+            <End Role="ASSIGNMENT" EntitySet="ASSIGNMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASSIGNMEN__STAFF__2553EE1C" Association="Self.FK__ASSIGNMEN__STAFF__2553EE1C">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="ASSIGNMENT" EntitySet="ASSIGNMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Book0136__Author__40FC0891" Association="Self.FK__Book0136__Author__40FC0891">
+            <End Role="Author0136" EntitySet="Author0136" />
+            <End Role="Book0136" EntitySet="Book0136" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Book0136__Studen__41F02CCA" Association="Self.FK__Book0136__Studen__41F02CCA">
+            <End Role="student0136" EntitySet="student0136" />
+            <End Role="Book0136" EntitySet="Book0136" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Borrow013__Stude__43D8753C" Association="Self.FK__Borrow013__Stude__43D8753C">
+            <End Role="student0136" EntitySet="student0136" />
+            <End Role="Borrow0136" EntitySet="Borrow0136" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Borrow0136__ISBN__42E45103" Association="Self.FK__Borrow0136__ISBN__42E45103">
+            <End Role="Book0136" EntitySet="Book0136" />
+            <End Role="Borrow0136" EntitySet="Borrow0136" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__AUTHORI__30C5A0C8" Association="Self.FK__Student__AUTHORI__30C5A0C8">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DADModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C102107602Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TFN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="C102107602Book" Relationship="Self.FK__102107602__Autho__37729E57" FromRole="C102107602Author" ToRole="C102107602Book" />
+        </EntityType>
+        <EntityType Name="C102107602Book">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Published" Type="Int32" Nullable="false" />
+          <Property Name="AuthorID" Type="Int32" Nullable="false" />
+          <Property Name="StudID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="C102107602Author" Relationship="Self.FK__102107602__Autho__37729E57" FromRole="C102107602Book" ToRole="C102107602Author" />
+          <NavigationProperty Name="C102107602Student" Relationship="Self.FK__102107602__StudI__3866C290" FromRole="C102107602Book" ToRole="C102107602Student" />
+        </EntityType>
+        <EntityType Name="C102107602Student">
+          <Key>
+            <PropertyRef Name="StudID" />
+          </Key>
+          <Property Name="StudID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="C102107602Book" Relationship="Self.FK__102107602__StudI__3866C290" FromRole="C102107602Student" ToRole="C102107602Book" />
+        </EntityType>
+        <EntityType Name="ASSIGNMENT">
+          <Key>
+            <PropertyRef Name="DATEASSIGNED" />
+          </Key>
+          <Property Name="LOCCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="STAFFID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DATEASSIGNED" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Office" Relationship="Self.FK__ASSIGNMEN__LOCCO__245FC9E3" FromRole="ASSIGNMENT" ToRole="Office" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK__ASSIGNMEN__STAFF__2553EE1C" FromRole="ASSIGNMENT" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AUTHORID" />
+          </Key>
+          <Property Name="AUTHORID" Type="Int32" Nullable="false" />
+          <Property Name="AUTHORFIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AUTHORLASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AUTHORTAXFILENUMBER" Type="Int32" />
+          <NavigationProperty Name="Students" Relationship="Self.FK__Student__AUTHORI__30C5A0C8" FromRole="Author" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Author0136">
+          <Key>
+            <PropertyRef Name="AuthorsID" />
+          </Key>
+          <Property Name="AuthorsID" Type="Int32" Nullable="false" />
+          <Property Name="AuthorsFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorsSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthorsTaxFileNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Book0136" Relationship="Self.FK__Book0136__Author__40FC0891" FromRole="Author0136" ToRole="Book0136" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="YEARPUBLISHED" Type="Int32" Nullable="false" />
+          <Property Name="AUTHORID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Book0136">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="YearPublished" Type="Int32" Nullable="false" />
+          <Property Name="AuthorsID" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Author0136" Relationship="Self.FK__Book0136__Author__40FC0891" FromRole="Book0136" ToRole="Author0136" />
+          <NavigationProperty Name="student0136" Relationship="Self.FK__Book0136__Studen__41F02CCA" FromRole="Book0136" ToRole="student0136" />
+          <NavigationProperty Name="student01361" Relationship="Self.Borrow0136" FromRole="Book0136" ToRole="student0136" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="STAFFID" />
+          </Key>
+          <Property Name="STAFFID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GIVENNAME" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ASSIGNMENTs" Relationship="Self.FK__ASSIGNMEN__STAFF__2553EE1C" FromRole="EMPLOYEE" ToRole="ASSIGNMENT" />
+        </EntityType>
+        <EntityType Name="Office">
+          <Key>
+            <PropertyRef Name="LOCCODE" />
+          </Key>
+          <Property Name="LOCCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ASSIGNMENTs" Relationship="Self.FK__ASSIGNMEN__LOCCO__245FC9E3" FromRole="Office" ToRole="ASSIGNMENT" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LASTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="320" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PHONENUMBER" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AUTHORID" Type="Int32" />
+          <NavigationProperty Name="Author" Relationship="Self.FK__Student__AUTHORI__30C5A0C8" FromRole="Student" ToRole="Author" />
+        </EntityType>
+        <EntityType Name="student0136">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobilePhoneNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Book0136" Relationship="Self.FK__Book0136__Studen__41F02CCA" FromRole="student0136" ToRole="Book0136" />
+          <NavigationProperty Name="Book01361" Relationship="Self.Borrow0136" FromRole="student0136" ToRole="Book0136" />
+        </EntityType>
+        <Association Name="FK__102107602__Autho__37729E57">
+          <End Role="C102107602Author" Type="Self.C102107602Author" Multiplicity="1" />
+          <End Role="C102107602Book" Type="Self.C102107602Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C102107602Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="C102107602Book">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__102107602__StudI__3866C290">
+          <End Role="C102107602Student" Type="Self.C102107602Student" Multiplicity="0..1" />
+          <End Role="C102107602Book" Type="Self.C102107602Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C102107602Student">
+              <PropertyRef Name="StudID" />
+            </Principal>
+            <Dependent Role="C102107602Book">
+              <PropertyRef Name="StudID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASSIGNMEN__LOCCO__245FC9E3">
+          <End Role="Office" Type="Self.Office" Multiplicity="0..1" />
+          <End Role="ASSIGNMENT" Type="Self.ASSIGNMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Office">
+              <PropertyRef Name="LOCCODE" />
+            </Principal>
+            <Dependent Role="ASSIGNMENT">
+              <PropertyRef Name="LOCCODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASSIGNMEN__STAFF__2553EE1C">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="ASSIGNMENT" Type="Self.ASSIGNMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="STAFFID" />
+            </Principal>
+            <Dependent Role="ASSIGNMENT">
+              <PropertyRef Name="STAFFID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student__AUTHORI__30C5A0C8">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AUTHORID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="AUTHORID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Book0136__Author__40FC0891">
+          <End Role="Author0136" Type="Self.Author0136" Multiplicity="1" />
+          <End Role="Book0136" Type="Self.Book0136" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author0136">
+              <PropertyRef Name="AuthorsID" />
+            </Principal>
+            <Dependent Role="Book0136">
+              <PropertyRef Name="AuthorsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Book0136__Studen__41F02CCA">
+          <End Role="student0136" Type="Self.student0136" Multiplicity="1" />
+          <End Role="Book0136" Type="Self.Book0136" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student0136">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Book0136">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Borrow0136">
+          <End Role="student0136" Type="Self.student0136" Multiplicity="*" />
+          <End Role="Book0136" Type="Self.Book0136" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DADEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C102107602Author" EntityType="Self.C102107602Author" />
+          <EntitySet Name="C102107602Book" EntityType="Self.C102107602Book" />
+          <EntitySet Name="C102107602Student" EntityType="Self.C102107602Student" />
+          <EntitySet Name="ASSIGNMENTs" EntityType="Self.ASSIGNMENT" />
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="Author0136" EntityType="Self.Author0136" />
+          <EntitySet Name="Books" EntityType="Self.Book" />
+          <EntitySet Name="Book0136" EntityType="Self.Book0136" />
+          <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="Offices" EntityType="Self.Office" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="student0136" EntityType="Self.student0136" />
+          <AssociationSet Name="FK__102107602__Autho__37729E57" Association="Self.FK__102107602__Autho__37729E57">
+            <End Role="C102107602Author" EntitySet="C102107602Author" />
+            <End Role="C102107602Book" EntitySet="C102107602Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK__102107602__StudI__3866C290" Association="Self.FK__102107602__StudI__3866C290">
+            <End Role="C102107602Student" EntitySet="C102107602Student" />
+            <End Role="C102107602Book" EntitySet="C102107602Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASSIGNMEN__LOCCO__245FC9E3" Association="Self.FK__ASSIGNMEN__LOCCO__245FC9E3">
+            <End Role="Office" EntitySet="Offices" />
+            <End Role="ASSIGNMENT" EntitySet="ASSIGNMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASSIGNMEN__STAFF__2553EE1C" Association="Self.FK__ASSIGNMEN__STAFF__2553EE1C">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="ASSIGNMENT" EntitySet="ASSIGNMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student__AUTHORI__30C5A0C8" Association="Self.FK__Student__AUTHORI__30C5A0C8">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Book0136__Author__40FC0891" Association="Self.FK__Book0136__Author__40FC0891">
+            <End Role="Author0136" EntitySet="Author0136" />
+            <End Role="Book0136" EntitySet="Book0136" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Book0136__Studen__41F02CCA" Association="Self.FK__Book0136__Studen__41F02CCA">
+            <End Role="student0136" EntitySet="student0136" />
+            <End Role="Book0136" EntitySet="Book0136" />
+          </AssociationSet>
+          <AssociationSet Name="Borrow0136" Association="Self.Borrow0136">
+            <End Role="student0136" EntitySet="student0136" />
+            <End Role="Book0136" EntitySet="Book0136" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DADModelStoreContainer" CdmEntityContainer="DADEntities">
+          <EntitySetMapping Name="C102107602Author">
+            <EntityTypeMapping TypeName="DADModel.C102107602Author">
+              <MappingFragment StoreEntitySet="102107602Author">
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TFN" ColumnName="TFN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C102107602Book">
+            <EntityTypeMapping TypeName="DADModel.C102107602Book">
+              <MappingFragment StoreEntitySet="102107602Book">
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="StudID" ColumnName="StudID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C102107602Student">
+            <EntityTypeMapping TypeName="DADModel.C102107602Student">
+              <MappingFragment StoreEntitySet="102107602Student">
+                <ScalarProperty Name="StudID" ColumnName="StudID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSIGNMENTs">
+            <EntityTypeMapping TypeName="DADModel.ASSIGNMENT">
+              <MappingFragment StoreEntitySet="ASSIGNMENT">
+                <ScalarProperty Name="LOCCODE" ColumnName="LOCCODE" />
+                <ScalarProperty Name="STAFFID" ColumnName="STAFFID" />
+                <ScalarProperty Name="DATEASSIGNED" ColumnName="DATEASSIGNED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="DADModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="AUTHORID" ColumnName="AUTHORID" />
+                <ScalarProperty Name="AUTHORFIRSTNAME" ColumnName="AUTHORFIRSTNAME" />
+                <ScalarProperty Name="AUTHORLASTNAME" ColumnName="AUTHORLASTNAME" />
+                <ScalarProperty Name="AUTHORTAXFILENUMBER" ColumnName="AUTHORTAXFILENUMBER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Author0136">
+            <EntityTypeMapping TypeName="DADModel.Author0136">
+              <MappingFragment StoreEntitySet="Author0136">
+                <ScalarProperty Name="AuthorsID" ColumnName="AuthorsID" />
+                <ScalarProperty Name="AuthorsFirstName" ColumnName="AuthorsFirstName" />
+                <ScalarProperty Name="AuthorsSurname" ColumnName="AuthorsSurname" />
+                <ScalarProperty Name="AuthorsTaxFileNumber" ColumnName="AuthorsTaxFileNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="DADModel.Book">
+              <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="YEARPUBLISHED" ColumnName="YEARPUBLISHED" />
+                <ScalarProperty Name="AUTHORID" ColumnName="AUTHORID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Book0136">
+            <EntityTypeMapping TypeName="DADModel.Book0136">
+              <MappingFragment StoreEntitySet="Book0136">
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="YearPublished" ColumnName="YearPublished" />
+                <ScalarProperty Name="AuthorsID" ColumnName="AuthorsID" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="DADModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="STAFFID" ColumnName="STAFFID" />
+                <ScalarProperty Name="GIVENNAME" ColumnName="GIVENNAME" />
+                <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offices">
+            <EntityTypeMapping TypeName="DADModel.Office">
+              <MappingFragment StoreEntitySet="Office">
+                <ScalarProperty Name="LOCCODE" ColumnName="LOCCODE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="DADModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+                <ScalarProperty Name="AUTHORID" ColumnName="AUTHORID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="student0136">
+            <EntityTypeMapping TypeName="DADModel.student0136">
+              <MappingFragment StoreEntitySet="student0136">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePhoneNumber" ColumnName="MobilePhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Borrow0136" TypeName="DADModel.Borrow0136" StoreEntitySet="Borrow0136">
+            <EndProperty Name="student0136">
+              <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+            </EndProperty>
+            <EndProperty Name="Book0136">
+              <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

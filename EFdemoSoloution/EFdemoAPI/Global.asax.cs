@@ -18,6 +18,11 @@ namespace EFdemoAPI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
+            globalconfiguration configuration.formatters.jasonformatter.serializersettings.referanceloophandeling = newtonsoft.json.referanceloophandeling.ignore;
+            globalconfiguration configuration.formatters.remove(globalconfiguration configuration.formatters.xmlformatters);
+
+
         }
     }
 }
